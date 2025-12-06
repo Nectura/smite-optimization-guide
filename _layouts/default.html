@@ -1,153 +1,4 @@
-<h2>Additional Optimizations</h2>
-      
-      <details>
-        <summary>🌐 Reduce Ping with ExitLag</summary>
-        <p>ExitLag is a service that optimizes your connection routing to game servers.</p>
-        <ol>
-          <li>Visit <a href="https://www.exitlag.com/refer/10233630" target="_blank">ExitLag (referral link)</a> and create an account</li>
-          <li>Download and install ExitLag</li>
-          <li>Launch ExitLag and search for "Smite"</li>
-          <li>Select your region/server</li>
-          <li>Click "Apply routes" before launching Smite</li>
-          <li>Launch Smite and enjoy lower, more stable ping</li>
-        </ol>
-        <p><em>Note: ExitLag offers a free trial, then requires a subscription.</em></p>
-        <p><strong>Recommended ExitLag Settings:</strong></p>
-        <div class="settings-images">
-          <img src="./assets/img/exitlag-1.png" alt="ExitLag Performance Settings - Part 1">
-          <img src="./assets/img/exitlag-2.png" alt="ExitLag Performance Settings - Part 2">
-        </div>
-      </details>
-
-      <details>
-        <summary>⚡ Set Windows Power Plan to High Performance</summary>
-        <ol>
-          <li>Press <code>Windows + R</code> and type <code>powercfg.cpl</code></li>
-          <li>Click "Show additional plans"</li>
-          <li>Select "High performance"</li>
-          <li>If "High performance" is not visible, open Command Prompt as Administrator and run:
-            <br><code>powercfg -duplicatescheme 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</code>
-          </li>
-          <li>For even better performance, click "Change plan settings" → "Change advanced power settings"</li>
-          <li>Set "Processor power management" → "Minimum processor state" to 100%</li>
-          <li>Set "PCI Express" → "Link State Power Management" to Off</li>
-        </ol>
-      </details>
-
-      <details>
-        <summary>🛡️ Prevent Windows from Auto-Updating Drivers</summary>
-        <p>Follow the steps shown in the image below to disable automatic driver updates:</p>
-        <ol>
-          <li>Press <code>Windows + R</code> and type <code>sysdm.cpl</code></li>
-          <li>Go to the "Hardware" tab → Click "Device Installation Settings"</li>
-          <li>Select "No (your device might not work as expected)"</li>
-          <li>Click "Save Changes"</li>
-        </ol>
-        <p>Alternatively, you can use Group Policy Editor (Windows Pro only):</p>
-        <ol>
-          <li>Press <code>Windows + R</code> and type <code>gpedit.msc</code></li>
-          <li>Navigate to: Computer Configuration → Administrative Templates → Windows Components → Windows Update</li>
-          <li>Find "Do not include drivers with Windows Updates"</li>
-          <li>Set it to "Enabled"</li>
-        </ol>
-      </details>
-
-      <p><strong>Visual Guide:</strong></p>      <div class="instructions">
-        <h2>Setup Instructions</h2>
-        <p>Follow these steps to optimize your Smite performance:</p>
-        
-        <details>
-          <summary>🗑️ Clear Your Shader Cache (NVIDIA)</summary>
-          <ol>
-            <li>Close all games and GPU-intensive applications</li>
-            <li>Press <code>Windows + R</code> to open Run dialog</li>
-            <li>Type <code>%temp%</code> and press Enter</li>
-            <li>Delete all files in the Temp folder (select all with Ctrl+A, then Delete)</li>
-            <li>Navigate to <code>C:\ProgramData\NVIDIA Corporation\NV_Cache</code></li>
-            <li>Delete all files in the NV_Cache folder</li>
-            <li>Alternatively, open NVIDIA Control Panel → Manage 3D Settings → Shader Cache Size → Set to your preference or disable/re-enable</li>
-          </ol>
-        </details>
-
-        <details>
-          <summary>🗑️ Clear Your Shader Cache (AMD)</summary>
-          <ol>
-            <li>Close all games and GPU-intensive applications</li>
-            <li>Press <code>Windows + R</code> to open Run dialog</li>
-            <li>Type <code>%localappdata%</code> and press Enter</li>
-            <li>Navigate to <code>AMD\DxCache</code> and <code>AMD\GLCache</code></li>
-            <li>Delete all files in both cache folders</li>
-            <li>Alternatively, open AMD Software → Gaming → Graphics → Advanced → Reset Shader Cache</li>
-          </ol>
-        </details>
-
-        <details>
-          <summary>⚡ Enable Resizable BAR in BIOS</summary>
-          <p><strong>Requirements:</strong> Compatible CPU, motherboard, GPU, and updated BIOS</p>
-          <ol>
-            <li>Restart your PC and enter BIOS (usually press Del, F2, or F12 during boot)</li>
-            <li>Look for "Resizable BAR" or "Re-Size BAR Support" or "Smart Access Memory" (AMD)</li>
-            <li>Common locations:
-              <ul>
-                <li>Advanced → PCI Subsystem Settings</li>
-                <li>Advanced → System Agent Configuration</li>
-                <li>Settings → Advanced → PCI Configuration</li>
-              </ul>
-            </li>
-            <li>Enable "Resizable BAR" or "Above 4G Decoding"</li>
-            <li>You may also need to enable "CSM" as Disabled</li>
-            <li>Save changes and exit BIOS (usually F10)</li>
-            <li>Verify it's enabled: Download GPU-Z and check under "Advanced" tab</li>
-          </ol>
-        </details>
-
-        <details>
-          <summary>🚀 Overclock Your RAM (Enable XMP/DOCP)</summary>
-          <ol>
-            <li>Restart your PC and enter BIOS</li>
-            <li>Look for "XMP" (Intel) or "DOCP/EXPO" (AMD)</li>
-            <li>Common locations:
-              <ul>
-                <li>AI Tweaker → Memory Settings (ASUS)</li>
-                <li>Extreme Memory Profile (MSI)</li>
-                <li>Advanced Memory Settings (Gigabyte)</li>
-              </ul>
-            </li>
-            <li>Enable XMP/DOCP and select Profile 1 (usually the highest speed)</li>
-            <li>Save and exit BIOS (F10)</li>
-            <li>Verify: Download CPU-Z, check "Memory" tab for actual speed (multiply DDR by 2 for effective speed)</li>
-            <li>Run a stress test to ensure stability (Windows Memory Diagnostic or MemTest86)</li>
-          </ol>
-        </details>
-
-        <details>
-          <summary>⚙️ Overclock Your CPU (If Not X3D)</summary>
-          <p><strong>Warning:</strong> Only for non-X3D CPUs. X3D chips like 7800X3D, 7950X3D are already optimized.</p>
-          <p><strong>Easy Method - Auto OC in BIOS:</strong></p>
-          <ol>
-            <li>Enter BIOS</li>
-            <li>Look for "AI Overclocking", "Game Boost", or "Precision Boost Overdrive" (AMD)</li>
-            <li>Enable the automatic overclocking feature</li>
-            <li>Save and exit</li>
-          </ol>
-          <p><strong>AMD Ryzen - PBO Method:</strong></p>
-          <ol>
-            <li>Enter BIOS → Advanced → AMD Overclocking</li>
-            <li>Enable "Precision Boost Overdrive"</li>
-            <li>Set "PBO Limits" to "Motherboard"</li>
-            <li>Adjust "Curve Optimizer" to negative values (-5 to -30 per core, test for stability)</li>
-            <li>Save and stress test with Cinebench or Prime95</li>
-          </ol>
-          <p><strong>Intel - Easy OC:</strong></p>
-          <ol>
-            <li>Enter BIOS → Overclocking or AI Tweaker</li>
-            <li>Increase "CPU Core Ratio" by 1-2 (e.g., 50 for 5.0 GHz)</li>
-            <li>May need to increase voltage slightly (start with Auto or +0.05V)</li>
-            <li>Save and test with Cinebench or Prime95</li>
-            <li>If unstable, reduce ratio or increase voltage slightly</li>
-          </ol>
-        </details>
-      </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
@@ -198,22 +49,16 @@
         border-radius: 5px;
         margin: 20px 0;
       }
-      .instructions ul {
-        margin: 10px 0;
-        padding-left: 25px;
-      }
-      .instructions li {
-        margin: 10px 0;
-      }
       .important {
         background: #fff3cd;
         border-left: 4px solid #ffc107;
-        padding: 15px;
+        padding: 12px 15px;
         margin: 20px 0;
       }
-      .important strong {
+      .important p {
         color: #856404;
-        font-size: 1.1em;
+        margin: 0;
+        font-size: 0.95em;
       }
       .additional-images {
         margin: 20px 0;
@@ -285,41 +130,124 @@
     <div class="wrapper">
       <h1>Smite Optimization Settings Guide</h1>
       
-      <h2>Recommended In-Game Settings</h2>
-      <div class="settings-images">
-        <img src="./assets/img/1.png" alt="Smite Settings - Part 1">
-        <img src="./assets/img/2.png" alt="Smite Settings - Part 2">
-        <img src="./assets/img/3.png" alt="Smite Settings - Part 3">
-      </div>
-
-      <div class="instructions">
-        <h2>Setup Instructions</h2>
-        <p>Follow these steps to optimize your Smite performance:</p>
-        <ul>
-          <li><strong>Clear your shader cache</strong> - Search the web on how to do it with whatever you have (NVIDIA or AMD)</li>
-          <li><strong>Enable Resizable BAR</strong> - Make sure you have Resizable Bar turned on in your BIOS</li>
-          <li><strong>Overclock your RAM</strong> - Enable XMP/DOCP profile in BIOS for better performance</li>
-          <li><strong>Overclock your CPU</strong> - If it's not a modern X3D CPU by AMD (search the web, it's very simple and increases performance)</li>
-        </ul>
-      </div>
-
-      <div class="important">
-        <p><strong>⚠️ IMPORTANT: Shader cache needs to be cleared when the game is shut down.</strong></p>
-      </div>
-
       <h2>Performance Expectations</h2>
-      <p>Smite is very awful at optimization. Even if you have the best possible PC with a 5090, you will still not get the FPS you're supposed to get. I have a BIS (Best in Slot) PC and I get like 200-250 FPS with these settings.</p>
+      <p>Smite has awful optimization. You can't get decent frame rates with better graphics settings no matter how powerful your hardware is. Even with a maxed out PC running an RTX 5090 - which would destroy any other game - you'll still barely hit 200-250 FPS with these settings. The game just doesn't perform like it should.</p>
 
-      <h2>Additional Optimizations</h2>
-      <ul>
-        <li><strong>For better ping:</strong> Use ExitLag</li>
-        <li><strong>For more FPS / overall PC performance:</strong> Set the power plan to High Performance in Control Panel</li>
-        <li><strong>Prevent Windows from messing up your drivers:</strong> See the image below</li>
-      </ul>
+      <h2>Complete Optimization Guide</h2>
+      <p>Follow these comprehensive steps to maximize your Smite performance:</p>
+      
+      <details>
+        <summary>🎮 Recommended In-Game Graphics Settings</summary>
+        <p>Apply these graphics settings within Smite for optimal performance:</p>
+        <div class="settings-images">
+          <img src="./assets/img/1.png" alt="Smite Settings - Part 1">
+          <img src="./assets/img/2.png" alt="Smite Settings - Part 2">
+          <img src="./assets/img/3.png" alt="Smite Settings - Part 3">
+        </div>
+      </details>
 
-      <div class="additional-images">
-        <img src="./assets/img/4.png" alt="Windows Driver Settings">
-      </div>
+      <details>
+        <summary>🗑️ Clear Your Shader Cache (NVIDIA)</summary>
+        <p><strong>Note:</strong> Close Smite and all performance-intensive applications before clearing shader cache.</p>
+        <ol>
+          <li>Press <code>Windows + R</code> to open Run dialog</li>
+          <li>Type <code>C:\ProgramData\NVIDIA Corporation\NV_Cache</code> and press Enter</li>
+          <li>Delete all files in the NV_Cache folder</li>
+        </ol>
+        <p><strong>Alternative:</strong> Open NVIDIA Control Panel → Manage 3D Settings → Shader Cache Size → Click to toggle or reset</p>
+      </details>
+
+      <details>
+        <summary>🗑️ Clear Your Shader Cache (AMD)</summary>
+        <p><strong>Note:</strong> Close Smite and all performance-intensive applications before clearing shader cache.</p>
+        <ol>
+          <li>Press <code>Windows + R</code> to open Run dialog</li>
+          <li>Type <code>%localappdata%</code> and press Enter</li>
+          <li>Navigate to <code>AMD\DxCache</code> and delete all files</li>
+          <li>Navigate to <code>AMD\GLCache</code> and delete all files</li>
+        </ol>
+        <p><strong>Alternative:</strong> Open AMD Software → Gaming → Graphics → Advanced → Reset Shader Cache</p>
+      </details>
+
+      <details>
+        <summary>⚡ Enable Resizable BAR in BIOS</summary>
+        <p><strong>⚠️ Warning:</strong> BIOS settings vary by motherboard. Look up your specific motherboard model for exact instructions.</p>
+        <ol>
+          <li>Restart your PC and press Del, F2, or F12 during boot to enter BIOS</li>
+          <li>Find "Resizable BAR" (may also be called "Re-Size BAR Support" or "Smart Access Memory")</li>
+          <li>Enable it</li>
+          <li>You might need to enable "Above 4G Decoding" as well - look up a guide for your motherboard</li>
+          <li>Save and exit (F10)</li>
+          <li>Verify: Task Manager → Performance → GPU → Look for "Resizable BAR: On"</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>🚀 Enable RAM XMP/DOCP Profile</summary>
+        <p><strong>⚠️ Warning:</strong> BIOS settings vary by motherboard. Look up your specific motherboard model for exact instructions.</p>
+        <ol>
+          <li>Restart and enter BIOS</li>
+          <li>Find "XMP" (Intel) or "DOCP"/"EXPO" (AMD) in memory settings</li>
+          <li>Enable it and select Profile 1</li>
+          <li>Save and exit (F10)</li>
+          <li>Verify: Task Manager → Performance → Memory → Check the speed</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>⚙️ Enable CPU Auto Overclocking (If Not X3D)</summary>
+        <p><strong>⚠️ Warning:</strong> BIOS settings vary by motherboard. Look up your specific motherboard model for exact instructions. X3D chips (7800X3D, 7950X3D, 9800X3D) should NOT be overclocked.</p>
+        <ol>
+          <li>Enter BIOS</li>
+          <li>Find your motherboard's auto overclocking feature (varies by brand)</li>
+          <li>Enable it</li>
+          <li>Save and exit (F10)</li>
+        </ol>
+        <p><em>For AMD: Enable "Precision Boost Overdrive (PBO)"</em></p>
+        <p><em>Check speeds: Task Manager → Performance → CPU</em></p>
+      </details>
+
+      <details>
+        <summary>🌐 Reduce Ping with ExitLag</summary>
+        <p>ExitLag is a network optimization service that improves connection routing to game servers, reducing latency and stabilizing ping.</p>
+        <ol>
+          <li>Visit <a href="https://www.exitlag.com/refer/10233630" target="_blank">ExitLag (referral link)</a> and create an account</li>
+          <li>Download and install ExitLag</li>
+          <li>Launch ExitLag and search for "Smite"</li>
+          <li>Select your region/server</li>
+          <li>Click "Apply routes" before launching Smite</li>
+          <li>Launch Smite and enjoy lower, more stable ping</li>
+        </ol>
+        <p><em>Note: ExitLag offers a free trial, then requires a subscription.</em></p>
+        <p><strong>Recommended ExitLag Performance Settings:</strong></p>
+        <div class="settings-images">
+          <img src="./assets/img/exitlag-1.png" alt="ExitLag Performance Settings - Part 1">
+          <img src="./assets/img/exitlag-2.png" alt="ExitLag Performance Settings - Part 2">
+        </div>
+      </details>
+
+      <details>
+        <summary>⚡ Set Windows Power Plan</summary>
+        <ol>
+          <li>Press <code>Windows + R</code> and type <code>powercfg.cpl</code></li>
+          <li>Select "High Performance" or "Ultimate Performance (ExitLag)" if you use ExitLag</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>🛡️ Disable Windows Automatic Driver Updates</summary>
+        <p>This prevents Windows from overriding and breaking your graphics drivers. GPU drivers should only be updated through your GPU software (NVIDIA GeForce Experience or AMD Software).</p>
+        <ol>
+          <li>Press <code>Windows + R</code> and type <code>sysdm.cpl</code></li>
+          <li>Go to "Hardware" tab → "Device Installation Settings"</li>
+          <li>Select "No (your device might not work as expected)"</li>
+          <li>Click "Save Changes"</li>
+        </ol>
+        <p><strong>Visual Guide:</strong></p>
+        <div class="additional-images">
+          <img src="./assets/img/4.png" alt="Windows Driver Settings">
+        </div>
+      </details>
 
       <footer>
         <p><small>Made with ❤️ by Nectura</small></p>
