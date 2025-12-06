@@ -1,8 +1,8 @@
-# Smite Optimization Settings Guide
+# SMITE 2 Optimization Guide
 
 A comprehensive guide for optimizing Smite performance and maximizing FPS.
 
-**Visit the guide:** [https://nectura.github.io/Smite-FPS-Guide/](https://nectura.github.io/Smite-FPS-Guide/)
+**Visit the guide:** [https://nectura.github.io/smite-optimization-guide/](https://nectura.github.io/smite-optimization-guide/)
 
 ## What This Site Offers
 
@@ -31,5 +31,6 @@ Smite has notoriously poor optimization. Even with top-tier hardware (RTX 5090, 
 - Individual results may vary depending on your specific system configuration
 
 ---
+
 
 Visit the site to access step-by-step guides for each optimization technique.
