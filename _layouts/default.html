@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SMITE 2 Optimization Guide</title>
+    <title>Smite Optimization Settings</title>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L1KBK0ZNVR"></script>
     <script>
@@ -13,30 +14,97 @@
       gtag('js', new Date());
       gtag('config', 'G-L1KBK0ZNVR');
     </script>
+    
     <style>
+      :root {
+        --bg-primary: #f5f5f5;
+        --bg-secondary: white;
+        --text-primary: #333;
+        --text-secondary: #34495e;
+        --border-color: #ddd;
+        --shadow: rgba(0,0,0,0.1);
+        --details-bg: #f8f9fa;
+        --details-border: #dee2e6;
+        --code-bg: #e9ecef;
+        --warning-bg: #fff3cd;
+        --warning-border: #ffc107;
+        --warning-text: #856404;
+      }
+      
+      [data-theme="dark"] {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --border-color: #404040;
+        --shadow: rgba(0,0,0,0.3);
+        --details-bg: #252525;
+        --details-border: #404040;
+        --code-bg: #1a1a1a;
+        --warning-bg: #3a3a1a;
+        --warning-border: #ffc107;
+        --warning-text: #ffdb7d;
+      }
+      
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         line-height: 1.6;
-        color: #333;
+        color: var(--text-primary);
         max-width: 900px;
         margin: 0 auto;
         padding: 20px;
-        background: #f5f5f5;
+        background: var(--bg-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       .wrapper {
-        background: white;
+        background: var(--bg-secondary);
         padding: 30px;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px var(--shadow);
+        transition: background-color 0.3s ease;
+      }
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 5px;
+        background: var(--details-bg);
+        padding: 5px;
+        border-radius: 8px;
+        border: 1px solid var(--details-border);
+      }
+      .theme-toggle button {
+        background: transparent;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: var(--text-primary);
+        font-size: 0.9em;
+        transition: background-color 0.2s ease;
+      }
+      .theme-toggle button:hover {
+        background: var(--border-color);
+      }
+      .theme-toggle button.active {
+        background: #3498db;
+        color: white;
       }
       h1 {
-        color: #2c3e50;
+        color: var(--text-primary);
         border-bottom: 3px solid #3498db;
         padding-bottom: 10px;
       }
       h2 {
-        color: #34495e;
+        color: var(--text-secondary);
         margin-top: 30px;
+      }
+      a {
+        color: #3498db;
+      }
+      [data-theme="dark"] a {
+        color: #5dade2;
       }
       .settings-images {
         display: flex;
@@ -47,24 +115,24 @@
       .settings-images img {
         width: 100%;
         height: auto;
-        border: 2px solid #ddd;
+        border: 2px solid var(--border-color);
         border-radius: 4px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px var(--shadow);
       }
       .instructions {
-        background: #ecf0f1;
+        background: var(--details-bg);
         padding: 20px;
         border-radius: 5px;
         margin: 20px 0;
       }
       .important {
-        background: #fff3cd;
-        border-left: 4px solid #ffc107;
+        background: var(--warning-bg);
+        border-left: 4px solid var(--warning-border);
         padding: 12px 15px;
         margin: 20px 0;
       }
       .important p {
-        color: #856404;
+        color: var(--warning-text);
         margin: 0;
         font-size: 0.95em;
       }
@@ -78,21 +146,22 @@
         width: 100%;
         max-width: 600px;
         height: auto;
-        border: 2px solid #ddd;
+        border: 2px solid var(--border-color);
         border-radius: 4px;
         margin: 10px 0;
       }
       details {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
+        background: var(--details-bg);
+        border: 1px solid var(--details-border);
         border-radius: 5px;
         padding: 10px 15px;
         margin: 10px 0;
         cursor: pointer;
+        transition: background-color 0.3s ease;
       }
       details summary {
         font-weight: 600;
-        color: #2c3e50;
+        color: var(--text-primary);
         cursor: pointer;
         user-select: none;
         padding: 5px 0;
@@ -101,14 +170,14 @@
         color: #3498db;
       }
       details[open] {
-        background: #ffffff;
+        background: var(--bg-secondary);
         border-color: #3498db;
       }
       details[open] summary {
         color: #3498db;
         margin-bottom: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #dee2e6;
+        border-bottom: 1px solid var(--details-border);
       }
       details p, details ol {
         margin: 10px 0;
@@ -121,32 +190,79 @@
         margin: 8px 0;
       }
       details code {
-        background: #e9ecef;
+        background: var(--code-bg);
         padding: 2px 6px;
         border-radius: 3px;
         font-family: 'Courier New', monospace;
         font-size: 0.9em;
+        color: var(--text-primary);
       }
       footer {
         margin-top: 40px;
         padding-top: 20px;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid var(--border-color);
         text-align: center;
-        color: #7f8c8d;
+        color: var(--text-secondary);
         font-size: 0.9em;
       }
     </style>
   </head>
   <body>
+    <div class="theme-toggle">
+      <button onclick="setTheme('light')">☀️ Light</button>
+      <button onclick="setTheme('dark')">🌙 Dark</button>
+      <button onclick="setTheme('system')" class="active">💻 System</button>
+    </div>
+    
+    <script>
+      function setTheme(mode) {
+        localStorage.setItem('theme-mode', mode);
+        applyTheme(mode);
+        updateActiveButton(mode);
+      }
+      
+      function applyTheme(mode) {
+        if (mode === 'system') {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', mode);
+        }
+      }
+      
+      function updateActiveButton(mode) {
+        document.querySelectorAll('.theme-toggle button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        const buttons = document.querySelectorAll('.theme-toggle button');
+        if (mode === 'light') buttons[0].classList.add('active');
+        else if (mode === 'dark') buttons[1].classList.add('active');
+        else buttons[2].classList.add('active');
+      }
+      
+      // Initialize theme on page load
+      const savedMode = localStorage.getItem('theme-mode') || 'system';
+      applyTheme(savedMode);
+      updateActiveButton(savedMode);
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const currentMode = localStorage.getItem('theme-mode') || 'system';
+        if (currentMode === 'system') {
+          applyTheme('system');
+        }
+      });
+    </script>
+    
     <div class="wrapper">
-      <h1>SMITE 2 Optimization Guide</h1>
+      <h1>Smite Optimization Settings Guide</h1>
       
       <div class="important">
         <p><strong>Warning:</strong> This guide includes BIOS modifications. Incorrect settings can prevent your PC from booting. Research your specific hardware and proceed at your own risk.</p>
       </div>
       
       <h2>Performance Expectations</h2>
-      <p>Smite has awful optimization. You can't get decent frame rates with better graphics settings no matter how powerful your hardware is. Even with an essentially maxed out PC like mine (<a href="https://pcpartpicker.com/user/Nectura/saved/#view=qVcJkL" target="_blank">see here</a>) - which would destroy any other game - you'll still only hit 200-250 FPS with these settings. The game just doesn't perform like it should.</p>
+      <p>Smite has awful optimization. You can't get decent frame rates with better graphics settings no matter how powerful your hardware is. Even with a maxed out PC like mine (<a href="https://pcpartpicker.com/user/Nectura/saved/#view=qVcJkL" target="_blank">see here</a>) running an RTX 5090 - which would destroy any other game - you'll still only hit 200-250 FPS with these settings. The game just doesn't perform like it should.</p>
 
       <h2>Complete Optimization Guide</h2>
       <p>Follow these comprehensive steps to maximize your Smite performance:</p>
@@ -268,8 +384,4 @@
       </footer>
     </div>
   </body>
-
 </html>
-
-
-
