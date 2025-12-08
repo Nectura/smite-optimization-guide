@@ -1,34 +1,28 @@
-// Lightbox functionality
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxClose = document.getElementById('lightbox-close');
+document.addEventListener('DOMContentLoaded', function() {
+  // Create modal element
+  const modal = document.createElement('div');
+  modal.className = 'image-modal';
+  modal.innerHTML = '<img src="" alt="">';
+  document.body.appendChild(modal);
 
-// Add click event to all images
-document.querySelectorAll('.settings-images img, .additional-images img').forEach(img => {
-  img.addEventListener('click', function() {
-    lightbox.classList.add('active');
-    lightboxImg.src = this.src;
-    lightboxImg.alt = this.alt;
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  const modalImg = modal.querySelector('img');
+
+  // Add click handlers to all images
+  document.querySelectorAll('.settings-images img, .additional-images img').forEach(img => {
+    img.addEventListener('click', () => {
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modal.classList.add('show');
+    });
   });
-});
 
-// Close lightbox when clicking the X or anywhere on the overlay
-function closeLightbox() {
-  lightbox.classList.remove('active');
-  document.body.style.overflow = ''; // Restore scrolling
-}
+  // Close on click anywhere
+  modal.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', function(e) {
-  if (e.target === lightbox) {
-    closeLightbox();
-  }
-});
-
-// Close with Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-    closeLightbox();
-  }
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modal.classList.remove('show');
+  });
 });
