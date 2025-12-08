@@ -28,6 +28,12 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
   </head>
   <body>
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
     <div class="theme-toggle">
       <button onclick="setTheme('light')">☀️ Light</button>
       <button onclick="setTheme('dark')">🌙 Dark</button>
@@ -51,7 +57,6 @@
       
       <details>
         <summary>🎮 Recommended In-Game Graphics Settings</summary>
-        <p>Apply these graphics settings within Smite for optimal performance:</p>
         <div class="settings-images">
           <img src="./assets/img/1.png" alt="Smite Settings - Part 1">
           <img src="./assets/img/2.png" alt="Smite Settings - Part 2">
@@ -161,9 +166,30 @@
         </div>
       </details>
 
+      <h2>Optional Steps</h2>
+
+      <details>
+        <summary>📊 Enable Steam FPS Counter</summary>
+        <p>Display your FPS in-game to monitor performance:</p>
+        <ol>
+          <li>Open Steam and click on "Steam" in the top-left corner</li>
+          <li>Select "Settings" from the dropdown menu</li>
+          <li>Navigate to "In-Game" in the left sidebar</li>
+          <li>Ensure "Enable the Steam Overlay while in-game" is checked</li>
+          <li>Scroll down and match the FPS counter settings shown in the screenshot below</li>
+          <li>You should now have a clear FPS display - adjust the position and color as preferred</li>
+        </ol>
+        <div class="settings-images">
+          <img src="./assets/img/steam-1.png" alt="Steam FPS Counter Settings">
+        </div>
+        <p><em>Note: The FPS counter will appear in your chosen corner whenever you're playing a Steam game.</em></p>
+      </details>
+
       <footer>
         <p><small>Made with ❤️ by Nectura</small></p>
       </footer>
     </div>
+
+    <script src="./assets/js/lightbox.js"></script>
   </body>
 </html>
