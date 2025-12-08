@@ -1,28 +1,21 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Create modal element
-  const modal = document.createElement('div');
-  modal.className = 'image-modal';
-  modal.innerHTML = '<img src="" alt="">';
-  document.body.appendChild(modal);
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImage');
+  const images = document.querySelectorAll('.settings-images img, .additional-images img');
 
-  const modalImg = modal.querySelector('img');
-
-  // Add click handlers to all images
-  document.querySelectorAll('.settings-images img, .additional-images img').forEach(img => {
-    img.addEventListener('click', () => {
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-      modal.classList.add('show');
-    });
+  images.forEach(img => {
+    img.onclick = function() {
+      modal.classList.add('active');
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+    }
   });
 
-  // Close on click anywhere
-  modal.addEventListener('click', () => {
-    modal.classList.remove('show');
-  });
+  modal.onclick = function() {
+    modal.classList.remove('active');
+  }
 
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') modal.classList.remove('show');
-  });
-});
+  document.onkeydown = function(e) {
+    if (e.key === 'Escape') {
+      modal.classList.remove('active');
+    }
+  }
