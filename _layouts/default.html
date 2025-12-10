@@ -59,12 +59,31 @@
       </details>
 
       <details>
+        <summary>🔄 Update Your Graphics Drivers</summary>
+        <p>Keeping your GPU drivers up to date can improve performance and fix bugs.</p>
+        <p><strong>NVIDIA:</strong></p>
+        <ol>
+          <li>Visit <a href="https://www.nvidia.com/Download/index.aspx">NVIDIA Driver Downloads</a></li>
+          <li>Select your GPU model or use automatic detection</li>
+          <li>Download the latest <strong>Game Ready Driver</strong> (avoid Beta/Studio drivers unless needed)</li>
+          <li>Run the installer and select "Custom Installation" → Check "Perform clean installation"</li>
+        </ol>
+        <p><strong>AMD:</strong></p>
+        <ol>
+          <li>Visit <a href="https://www.amd.com/en/support">AMD Driver and Support</a></li>
+          <li>Select your GPU model or use automatic detection</li>
+          <li>Download the latest <strong>Recommended (WHQL)</strong> driver (avoid Optional drivers)</li>
+          <li>Run the installer</li>
+        </ol>
+        <p><strong>Recommendation:</strong> Use GeForce Experience (NVIDIA) or AMD Software (AMD) to update drivers automatically.</p>
+        <p>If after a driver update you start getting driver crashes or weird screen issues, revert to the previous version manually.</p>
+      </details>
+      
+      <details>
         <summary>🗑️ Clear Your Shader Cache (NVIDIA)</summary>
         <p><strong>Note:</strong> Close Smite and all performance-intensive applications before clearing shader cache.</p>
         <ol>
-          <li>Press <code>Windows + R</code> to open Run dialog</li>
-          <li>Type <code>%LOCALAPPDATA%\NVIDIA</code> and press Enter</li>
-          <li>Delete all files in the GLCache and DXCache folders</li>
+          <li><a href="https://nvidia.custhelp.com/app/answers/detail/a_id/5735/~/deleting-nvidia-shader-cache-files">Follow NVIDIA's official shader cache clearing guide</a></li>
         </ol>
       </details>
 
@@ -72,25 +91,111 @@
         <summary>🗑️ Clear Your Shader Cache (AMD)</summary>
         <p><strong>Note:</strong> Close Smite and all performance-intensive applications before clearing shader cache.</p>
         <ol>
-          <li>Press <code>Windows + R</code> to open Run dialog</li>
-          <li>Type <code>%localappdata%</code> and press Enter</li>
-          <li>Navigate to <code>AMD\DxCache</code> and delete all files</li>
-          <li>Navigate to <code>AMD\GLCache</code> and delete all files</li>
+          <li>Open AMD Software → Gaming → Graphics → Advanced → Reset Shader Cache</li>
         </ol>
-        <p><strong>Alternative:</strong> Open AMD Software → Gaming → Graphics → Advanced → Reset Shader Cache</p>
+        <p><strong>Alternative (Manual):</strong></p>
+        <ol>
+          <li>Press <code>Windows + R</code> to open Run dialog</li>
+          <li>Type <code>%LOCALAPPDATA%\AMD</code> and press Enter</li>
+          <li>Delete all the cache folders</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>💾 Update Your Motherboard BIOS</summary>
+        <p><strong>⚠️ Important Warnings:</strong></p>
+        <ul>
+          <li><strong>Only update if you have a specific reason</strong> (new CPU support, bug fixes, security patches, required missing features)</li>
+          <li>Power loss during update can brick your motherboard - use a UPS (uninterruptible power supply) if possible</li>
+          <li>Installing the wrong BIOS file can permanently damage your motherboard</li>
+          <li>BIOS updates may reset all custom settings (overclocks, XMP, boot order) - write them down first</li>
+        </ul>
+        
+        <p><strong>Step 1: Check Your Current BIOS Version</strong></p>
+        <ol>
+          <li>Press <code>Windows + R</code>, type <code>msinfo32</code>, and press Enter</li>
+          <li>Look for "BIOS Version/Date" in the System Summary section</li>
+          <li>Write down your current version number</li>
+        </ol>
+        
+        <p><strong>Step 2: Download the Correct BIOS Update</strong></p>
+        <ol>
+          <li>Find your exact motherboard model (check System Information or physically look at the board)</li>
+          <li>Go to your motherboard manufacturer's official website (ASUS, MSI, Gigabyte, ASRock, etc.)</li>
+          <li>Navigate to Support → Downloads for your specific model</li>
+          <li>Download the latest <strong>non-beta</strong> BIOS version</li>
+          <li><strong>Triple-check</strong> the model number matches exactly - wrong BIOS = bricked motherboard</li>
+        </ol>
+        
+        <p><strong>Step 3: Prepare USB Drive</strong></p>
+        <ol>
+          <li>Use a USB drive (doesn't need to be high quality)</li>
+          <li>Format it as FAT32 (right-click drive in File Explorer → Format → select FAT32)</li>
+          <li>Extract the downloaded BIOS files (usually a .zip file)</li>
+          <li>Copy the extracted BIOS file to the USB drive root directory</li>
+        </ol>
+        
+        <p><strong>Step 4: Update the BIOS</strong></p>
+        <p><em>Most modern motherboards use one of these methods:</em></p>
+        
+        <p><strong>Method A: Update from Within BIOS (Recommended)</strong></p>
+        <ol>
+          <li>Restart your PC and press Del, F2, or F12 to enter BIOS</li>
+          <li>Find the BIOS update utility (called "EZ Flash," "M-Flash," "Q-Flash," or similar)</li>
+          <li>Select the BIOS file from your USB drive</li>
+          <li>Confirm and start the update</li>
+          <li><strong>DO NOT turn off or restart your PC during the update (5-10 minutes)</strong></li>
+          <li>The PC will restart automatically when complete</li>
+        </ol>
+        
+        <p><strong>Method B: USB BIOS Flashback (No Boot Required)</strong></p>
+        <p><em>Only available on some higher-end motherboards</em></p>
+        <ol>
+          <li>Rename the BIOS file according to your motherboard's requirements (check manual)</li>
+          <li>Insert USB into the designated Flashback port (check motherboard manual)</li>
+          <li>Press and hold the Flashback button for 3-5 seconds</li>
+          <li>Wait for the LED to stop blinking (5-10 minutes)</li>
+        </ol>
+        
+        <p><strong>Method C: Windows Utility (Least Recommended)</strong></p>
+        <p>Some manufacturers offer Windows software (ASUS EZ Update, MSI Live Update, etc.). This method is riskier because a Windows crash during update can brick your motherboard. Use Methods A or B if possible.</p>
+        
+        <p><strong>Step 5: After Update</strong></p>
+        <ol>
+          <li>Verify the new BIOS version in System Information or BIOS screen</li>
+          <li>Reconfigure any custom settings you wrote down earlier</li>
+          <li>Test system stability</li>
+        </ol>
+        
+        <p><strong>If Something Goes Wrong:</strong></p>
+        <ul>
+          <li>Try clearing CMOS (remove motherboard battery for 30 seconds or use reset button)</li>
+          <li>Use BIOS Flashback if your motherboard supports it</li>
+          <li>Some motherboards have dual BIOS that can auto-recover</li>
+          <li>Contact manufacturer support if all else fails</li>
+        </ul>
       </details>
 
       <details>
         <summary>⚡ Enable Resizable BAR in BIOS</summary>
-        <p><strong>⚠️ Warning:</strong> BIOS settings vary by motherboard. Look up your specific motherboard model for exact instructions.</p>
+        <p><strong>⚠️ Important Requirements:</strong></p>
+        <ul>
+          <li>Your CPU, motherboard, and GPU must all support Resizable BAR</li>
+          <li>Your motherboard BIOS must be updated to a version that supports Resizable BAR - older BIOS versions may not have this option available</li>
+          <li>BIOS settings vary by motherboard - look up your specific model for exact instructions</li>
+          <li>Your system must be using UEFI boot mode (not Legacy/CSM)</li>
+          <li>Your drive must use GPT partition (not MBR)</li>
+        </ul>
+        <p><strong>Steps:</strong></p>
         <ol>
           <li>Restart your PC and press Del, F2, or F12 during boot to enter BIOS</li>
-          <li>Find "Resizable BAR" (may also be called "Re-Size BAR Support" or "Smart Access Memory")</li>
-          <li>Enable it</li>
-          <li>You might need to enable "Above 4G Decoding" as well - look up a guide for your motherboard</li>
-          <li>Save and exit (F10)</li>
-          <li>Verify: Check in BIOS or the GPU software to confirm</li>
+          <li>Disable "CSM" (Compatibility Support Module) or "Legacy Boot"</li>
+          <li>Enable "Above 4G Decoding"</li>
+          <li>Enable "Resizable BAR" (may also be called "Re-Size BAR Support" or "Smart Access Memory" for AMD)</li>
+          <li>Save and exit (usually F10)</li>
+          <li><strong>Verify:</strong> Check NVIDIA Control Panel → System Information, or use GPU-Z to confirm Resizable BAR is enabled</li>
         </ol>
+        <p><strong>Note:</strong> Some older GTX 16 series and RTX 30 series GPUs may also need a VBIOS update. Check your GPU manufacturer's website.</p>
       </details>
 
       <details>
